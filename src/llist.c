@@ -5,7 +5,10 @@
 struct llist *
 llist_insert (struct llist * restrict head, const void *data)
 {
-  struct llist *node = malloc (sizeof *node);
+  struct llist *node;
+  if (!(node = malloc (sizeof *node))) {
+    return NULL;
+  }
   node->next = node;
   node->data = data;
 
