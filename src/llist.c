@@ -12,7 +12,7 @@ llist_insert (struct llist * restrict head, const void *data)
   node->next = node;
   node->data = data;
 
-  head = head ? head : node;
+  head = head ?: node;
   node->prev = head;
   node->next = head->next;
   head->next->prev = node;
