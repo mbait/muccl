@@ -1,17 +1,10 @@
-#include <stdlib.h>
+#include <stddef.h>
 #include "llist.h"
 
 
 struct llist *
-llist_insert (struct llist * restrict head, const void *data)
+llist_insert (struct llist *head, struct llist *node)
 {
-  struct llist *node;
-  if (!(node = malloc (sizeof *node))) {
-    return NULL;
-  }
-  node->next = node;
-  node->data = data;
-
   head = head ?: node;
   node->prev = head;
   node->next = head->next;
@@ -28,7 +21,5 @@ llist_remove (struct llist *node)
   struct llist *next = node->next;
   next->prev = prev;
   prev->next = next;
-  free (node);
-
   return prev == next ? NULL : next;
 }

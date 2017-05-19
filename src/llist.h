@@ -1,8 +1,7 @@
 #pragma once
 
-
 /**
- * Doubly linked list.
+ * Intrusive doubly-linked list.
  *
  * The list is looped.
  * Users can check for NULL or use so called "sentinel" in order to check if the list is empty.
@@ -14,17 +13,17 @@ struct llist
 {
   struct llist *prev;
   struct llist *next;
-  const void *data;
 };
+
 /**
  * Inserts new element into the list.
  * @return new list head.
  */
 struct llist *
-llist_insert (struct llist *head, const void *data);
+llist_insert (struct llist *, struct llist *);
 /**
  * Remove element from the list.
  * @return new list head or NULL.
  */
 struct llist *
-llist_remove (struct llist *node);
+llist_remove (struct llist *);
