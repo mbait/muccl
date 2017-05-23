@@ -4,8 +4,8 @@
 
 struct ref
 {
-  void (*free) (const void *);
   size_t count;
+  void (*free) (void *);
 };
 
 void * ref_add_ref (struct ref *);
