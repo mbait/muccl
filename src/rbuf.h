@@ -5,7 +5,7 @@ struct rbuf
   size_t cap; // Capacity.
   size_t len; // Length.
   size_t src; // Offset.
-  char dat[]; // Data.
+  char buf[]; // Data.
 };
 
 

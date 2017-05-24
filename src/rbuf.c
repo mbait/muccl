@@ -28,8 +28,8 @@ rbuf_read (struct rbuf *rbuf, void *ptr, size_t size)
   char * restrict dest = ptr;
   size = MIN(rbuf->len, size);
   size_t nread = MIN(rbuf->cap - rbuf->src, size);
-  memcpy (dest, rbuf->dat + rbuf->src, nread);
-  memcpy (dest + nread, rbuf->dat, size - nread);
+  memcpy (dest, rbuf->buf + rbuf->src, nread);
+  memcpy (dest + nread, rbuf->buf, size - nread);
   rbuf->src = (rbuf->src + size) % rbuf->cap;
   rbuf->len -= size;
   return size;
@@ -43,8 +43,8 @@ rbuf_write (struct rbuf *rbuf, const void *ptr, size_t size)
   size = MIN(rbuf->cap - rbuf->len, size);
   size_t offset = (rbuf->src + rbuf->len) % rbuf->cap;
   size_t nwrit = MIN(rbuf->cap - offset, size);
-  memcpy (rbuf->dat + offset, src, nwrit);
-  memcpy (rbuf->dat, src + nwrit, size - nwrit);
+  memcpy (rbuf->buf + offset, src, nwrit);
+  memcpy (rbuf->buf, src + nwrit, size - nwrit);
   rbuf->len += size;
   return size;
 }
