@@ -5,12 +5,10 @@
 struct llist *
 llist_insert (struct llist *head, struct llist *node)
 {
-  head = head ?: node;
   node->prev = head;
   node->next = head->next;
   head->next->prev = node;
-  head->next = node;
-  return node;
+  return head->next = node;
 }
 
 
@@ -20,6 +18,5 @@ llist_remove (struct llist *node)
   struct llist *prev = node->prev;
   struct llist *next = node->next;
   next->prev = prev;
-  prev->next = next;
-  return prev == next ? NULL : next;
+  return prev->next = next;
 }

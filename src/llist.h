@@ -3,17 +3,16 @@
 /**
  * Intrusive doubly-linked list.
  *
- * The list is looped.
- * Users can check for NULL or use so called "sentinel" in order to check if the list is empty.
- * The sentinel is simply created as
- *
- *   struct llist *null_node = llist_insert (NULL, NULL);
+ * The list is looped, and when empty its head node must have both
+ * pointers have the same value pointing to the head.
  */
 struct llist
 {
   struct llist *prev;
   struct llist *next;
 };
+
+#define llist_head(head) { .prev = &head, .next = &head }
 
 /**
  * Inserts new element into the list.
