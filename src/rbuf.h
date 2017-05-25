@@ -9,7 +9,7 @@ struct rbuf
 };
 
 
-struct rbuf * rbuf_alloc (size_t size);
+struct rbuf * rbuf_alloc (size_t size) __attribute__ ((malloc));
 
 size_t rbuf_write (struct rbuf *, const void * , size_t);
 size_t rbuf_read (struct rbuf *, void * , size_t);
