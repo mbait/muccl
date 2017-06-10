@@ -1,6 +1,6 @@
 #pragma once
 
-#include <stddef.h> 
+#include <stddef.h>
 
 struct ref
 {
@@ -8,7 +8,9 @@ struct ref
   void (*free) (void *);
 };
 
+// clang-format off
 void * ref_add_ref (struct ref *);
 void   ref_release (struct ref *);
+// clang-format on
 
 // TODO: weak references

@@ -1,6 +1,6 @@
-#include <stddef.h>
 #include "llist.h"
 
+#include <stddef.h>
 
 struct llist *
 llist_insert (struct llist *head, struct llist *node)
@@ -10,7 +10,6 @@ llist_insert (struct llist *head, struct llist *node)
   head->next->prev = node;
   return head->next = node;
 }
-
 
 struct llist *
 llist_remove (struct llist *node)

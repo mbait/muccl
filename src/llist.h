@@ -12,17 +12,18 @@ struct llist
   struct llist *next;
 };
 
-#define llist_head(head) { .prev = &head, .next = &head }
+#define llist_head(head)                                                      \
+  {                                                                           \
+    .prev = &head, .next = &head                                              \
+  }
 
 /**
  * Inserts new element into the list.
  * @return new list head.
  */
-struct llist *
-llist_insert (struct llist *, struct llist *);
+struct llist *llist_insert (struct llist *, struct llist *);
 /**
  * Remove element from the list.
  * @return new list head or NULL.
  */
-struct llist *
-llist_remove (struct llist *);
+struct llist *llist_remove (struct llist *);
