@@ -2,32 +2,32 @@ sources := $(wildcard src/*.c)
 objects := $(sources:.c=.o)
 depends := $(sources:.c=.d)
 
-CFLAGS :=         \
-	-MD 	  \
-	-O2 	  \
-	-Wall     \
-	-Wbad-function-cast \
-	-Wcast-align \
-	-Wconversion \
-	-Werror   \
-	-Wextra   \
-	-Wfloat-equal \
-	-Wformat \
-	-Wformat-security \
-	-Wpedantic \
-	-Wshadow \
-	-Wswitch-default \
-	-Wswitch-enum \
+GCCFLAGS :=                \
+  -MD 	                   \
+	-O2 	                   \
+	-Wall                    \
+	-Wbad-function-cast      \
+	-Wcast-align             \
+	-Wconversion             \
+	-Werror                  \
+	-Wextra                  \
+	-Wfloat-equal            \
+	-Wformat                 \
+	-Wformat-security        \
+	-Wpedantic               \
+	-Wshadow                 \
+	-Wswitch-default         \
+	-Wswitch-enum            \
 	-Wtraditional-conversion \
-	-Wwrite-strings \
-	-Waggregate-return \
-	-Wlogical-op \
-	-Wpacked \
-	-Wpadded \
-	-g 	  \
-	-std=c11  \
-	${CFLAGS}
+	-Wwrite-strings          \
+	-Waggregate-return       \
+	-Wlogical-op             \
+	-Wpacked                 \
+	-Wpadded                 \
+	-g 	                     \
+# keep
 
+CFLAGS := -std=c11 ${GCCFLAGS} ${CFLAGS}
 
 all : ${objects}
 
