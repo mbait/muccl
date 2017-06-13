@@ -54,4 +54,7 @@ check : \
 clean :
 	$(RM)  ${depends} ${objects}
 
-.PHONY : all check clean
+format :
+	clang-format -i -style=gnu src/*.[ch]
+
+.PHONY : all check clean format
