@@ -1,12 +1,11 @@
 #include "llist.h"
 
 #include <stdio.h>
-#include <stdlib.h>
 
 struct intnode
 {
   struct llist node;
-  int val;
+  size_t val;
 };
 
 void
@@ -23,14 +22,14 @@ print_list (struct llist *head)
   node = head->next;
   while (node != head)
     {
-      printf (" %2d", ((struct intnode *)node)->val);
+      printf (" %2zu", ((struct intnode *)node)->val);
       node = node->next;
     }
   printf ("\nElements (go backward):");
   node = head->prev;
   while (node != head)
     {
-      printf (" %2d", ((struct intnode *)node)->val);
+      printf (" %2zu", ((struct intnode *)node)->val);
       node = node->prev;
     }
   printf ("\n");
@@ -40,13 +39,13 @@ int
 main ()
 {
   struct llist head = llist_head (head);
-  struct intnode *node;
+  size_t nnodes = 10;
+  struct intnode node[nnodes];
   size_t i;
-  for (i = 0; i < 10; ++i)
+  for (i = 0; i < nnodes; ++i)
     {
-      node = malloc (sizeof *node);
-      node->val = i * i + 1;
-      llist_insert (&head, (struct llist *)node);
+      node[i].val = i * i + 1;
+      llist_insert (&head, (struct llist *)&node[i]);
       print_list (&head);
     }
   while (head.prev != head.next)
