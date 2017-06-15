@@ -7,10 +7,9 @@ struct rbuf *
 rbuf_alloc (size_t size)
 {
   struct rbuf *rbuf;
-  if (!(rbuf = malloc (sizeof *rbuf + size)))
-    {
-      return NULL;
-    }
+  if (!(rbuf = malloc (sizeof *rbuf + size))) {
+    return NULL;
+  }
 
   rbuf->cap = size;
   rbuf->len = 0;
