@@ -17,7 +17,12 @@ rbuf_alloc (size_t size)
   return rbuf;
 }
 
-#define MIN(a, b) ((a) <= (b) ? (a) : (b))
+#define MIN(a, b)                                                             \
+  __extension__({                                                             \
+    __typeof__(a) _a = (a);                                                   \
+    __typeof__(b) _b = (b);                                                   \
+    _a <= _b ? _a : _b;                                                       \
+  })
 
 size_t
 rbuf_read (struct rbuf *rbuf, void *ptr, size_t size)
