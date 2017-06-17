@@ -1,18 +1,18 @@
-#include "llist.h"
+#include "list.h"
 
 #include <stdio.h>
 
 struct intnode
 {
-  struct llist node;
+  struct list node;
   size_t val;
 };
 
 void
-print_list (struct llist *head)
+print_list (struct list *head)
 {
   size_t count = 0;
-  struct llist *node = head->next;
+  struct list *node = head->next;
   while (node != head) {
     ++count;
     node = node->next;
@@ -35,17 +35,17 @@ print_list (struct llist *head)
 int
 main ()
 {
-  struct llist head = llist_head (head);
+  struct list head = list_head (head);
   size_t nnodes = 10;
   struct intnode node[nnodes];
   size_t i;
   for (i = 0; i < nnodes; ++i) {
     node[i].val = i * i + 1;
-    llist_insert (&head, (struct llist *)&node[i]);
+    list_insert (&head, (struct list *)&node[i]);
     print_list (&head);
   }
   while (head.prev != head.next) {
-    llist_remove (head.next);
+    list_remove (head.next);
     print_list (&head);
   }
   _Exit (0);

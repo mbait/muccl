@@ -31,8 +31,8 @@ CFLAGS := -std=c11 ${GCCFLAGS} ${CFLAGS}
 
 all : ${objects}
 
-src/test_llist.o : src/llist.o
-src/test_llist : LDLIBS := ${LDLIBS} src/llist.o
+src/test_list.o : src/list.o
+src/test_list : LDLIBS := ${LDLIBS} src/list.o
 
 src/test_bst.o : src/bst.o
 src/test_bst : LDLIBS := ${LDLIBS} src/bst.o
@@ -44,11 +44,11 @@ src/test_treap : LDLIBS := ${LDLIBS} src/treap.o src/bst.o
 
 check : \
 	src/test_bst   \
-	src/test_llist  \
+	src/test_list  \
 	src/test_treap  \
 # keep
 	src/test_bst
-	src/test_llist
+	src/test_list
 	src/test_treap
 
 clean :

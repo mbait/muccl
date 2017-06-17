@@ -6,13 +6,13 @@
  * The list is looped, and when empty its head node must have both
  * pointers have the same value pointing to the head.
  */
-struct llist
+struct list
 {
-  struct llist *prev;
-  struct llist *next;
+  struct list *prev;
+  struct list *next;
 };
 
-#define llist_head(head)                                                      \
+#define list_head(head)                                                      \
   {                                                                           \
     .prev = &head, .next = &head                                              \
   }
@@ -21,9 +21,9 @@ struct llist
  * Inserts new element into the list.
  * @return new list head.
  */
-struct llist *llist_insert (struct llist *, struct llist *);
+struct list *list_insert (struct list *, struct list *);
 /**
  * Remove element from the list.
  * @return new list head or NULL.
  */
-struct llist *llist_remove (struct llist *);
+struct list *list_remove (struct list *);
