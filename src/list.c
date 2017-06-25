@@ -1,7 +1,5 @@
 #include "list.h"
 
-#include <stddef.h>
-
 struct list *
 list_insert (struct list *head, struct list *node)
 {
