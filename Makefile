@@ -4,7 +4,7 @@ depends := $(sources:.c=.d)
 
 GCCFLAGS :=                \
   -MD                      \
-  -O2                      \
+  -O0                      \
   -Wall                    \
   -Wbad-function-cast      \
   -Wcast-align             \
