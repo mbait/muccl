@@ -12,7 +12,7 @@ struct list
   struct list *next;
 };
 
-#define list_head(head)                                                      \
+#define list_head(head)                                                       \
   {                                                                           \
     .prev = &head, .next = &head                                              \
   }
