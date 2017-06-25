@@ -3,28 +3,28 @@ objects := $(sources:.c=.o)
 depends := $(sources:.c=.d)
 
 GCCFLAGS :=                \
-  -MD 	                   \
-	-O2 	                   \
-	-Wall                    \
-	-Wbad-function-cast      \
-	-Wcast-align             \
-	-Wconversion             \
-	-Werror                  \
-	-Wextra                  \
-	-Wfloat-equal            \
-	-Wformat                 \
-	-Wformat-security        \
-	-Wpedantic               \
-	-Wshadow                 \
-	-Wswitch-default         \
-	-Wswitch-enum            \
-	-Wtraditional-conversion \
-	-Wwrite-strings          \
-	-Waggregate-return       \
-	-Wlogical-op             \
-	-Wpacked                 \
-	-Wpadded                 \
-	-g 	                     \
+  -MD                      \
+  -O2                      \
+  -Wall                    \
+  -Wbad-function-cast      \
+  -Wcast-align             \
+  -Wconversion             \
+  -Werror                  \
+  -Wextra                  \
+  -Wfloat-equal            \
+  -Wformat                 \
+  -Wformat-security        \
+  -Wpedantic               \
+  -Wshadow                 \
+  -Wswitch-default         \
+  -Wswitch-enum            \
+  -Wtraditional-conversion \
+  -Wwrite-strings          \
+  -Waggregate-return       \
+  -Wlogical-op             \
+  -Wpacked                 \
+  -Wpadded                 \
+  -g                       \
 # keep
 
 CFLAGS := -std=c11 ${GCCFLAGS} ${CFLAGS}
