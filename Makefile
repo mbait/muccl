@@ -3,7 +3,7 @@ objects := $(sources:.c=.o)
 depends := $(sources:.c=.d)
 
 GCCFLAGS :=                \
-  -MD                      \
+  -MMD                     \
   -O0                      \
   -Wall                    \
   -Wbad-function-cast      \
