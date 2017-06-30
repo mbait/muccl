@@ -18,7 +18,6 @@ GCCFLAGS :=                \
   -Wshadow                 \
   -Wswitch-default         \
   -Wswitch-enum            \
-  -Wtraditional-conversion \
   -Wwrite-strings          \
   -Waggregate-return       \
   -Wlogical-op             \
